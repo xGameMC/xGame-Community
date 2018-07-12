@@ -80,13 +80,48 @@ message.channel.send({embed});
 
 });
 
-client.on('message', message => {
-    if (message.author.id === client.user.id) return;
-            if (message.content.startsWith(prefix + "ping")) {
-        message.channel.sendMessage(':ping_pong: Pong! In `' + `${client.ping}` + ' ms`');
-    }
+
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
+         client.on('message', message => {
+            if (message.content === 'السلام عليكم ورحمة الله وبركاته') {
+              message.channel.send('** وعليكم السلام ورحمة الله وبركاته**');
+              message.channel.sendFile("./photoshop.PNG");
+               
+
+            }
 });
 
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
+         client.on('message', message => {
+            if (message.content === 'احتاج مساعده') {
+              message.channel.send('**-new يمكنك انشاء تذكره عن طريق الامر الاتي او التوجه الى احد رومات المساعده **');
+              message.channel.sendFile("./photoshop.PNG");
+               
+
+            }
+});
+
+
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
+         client.on('message', message => {
+            if (message.content === '$invite') {
+              message.channel.send('**بأمكانك دعوه اصدقائك الى السيرفر من خلال الرابط الاتي **');
+			                message.channel.send('** https://discord.gg/rknN5TE **');
+
+              message.channel.sendFile("./photoshop.PNG");
+               
+
+            }
+});
+
+
+});
 
 
 client.login(process.env.BOT_TOKEN);
