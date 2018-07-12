@@ -4,7 +4,7 @@ const prefix = '.'
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`ip server:soon`,"")
+client.user.setGame(`ip server:soon`,"ip server:soon")
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
@@ -121,6 +121,23 @@ message.channel.send({embed});
 }
 
 });
+
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
+         client.on('message', message => {
+            if (message.content === '$shop') {
+              message.channel.send('**المتجر سوف يتوفر عن قريب cooming soon **');
+			                message.channel.send('** https://discord.gg/rknN5TE **');
+
+              message.channel.sendFile("./photoshop.PNG");
+               
+
+            }
+});
+
+
+
 
 
 
