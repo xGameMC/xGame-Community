@@ -41,7 +41,7 @@ lient.on("message", message => {
   const embed = new Discord.RichEmbed()
     .setColor(0x00AE86)
     .addField(' Mute ', ' | :white_check_mark: |')
-    .addField('تم اعطاء الميوت ل', ${user.username}#${user.discriminator})
+.addField('تم اعطاء الميوت ل',${user.username}#${user.discriminator})
     .addField('السبب', 'تعكير نظام الشات')
     .addField('بواسطة:', ${message.author.username}#${message.author.discriminator})
    message.channel.send({embed: embed});
