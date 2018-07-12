@@ -168,6 +168,7 @@ client.on('ready', () => {
 
             }
 });
+
  client.on("message", message => {
     var prefix = "$";
  
@@ -187,4 +188,4 @@ client.on('ready', () => {
         }
       }}).then(msg => {msg.delete(3000)});
                           }
-	 });
+});
