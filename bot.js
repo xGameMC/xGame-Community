@@ -164,7 +164,6 @@ return message.reply("**:white_check_mark: .. تم فك الميوت عن الش
 });
   }
 
-};
 
 
 
