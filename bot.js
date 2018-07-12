@@ -193,6 +193,7 @@ client.on('ready', () => {
 
 
   var prefix = "$";
+            var args = message.content.substring(prefix.length).split(" ");
 
 client.on('message', message => {
   if (message.author.bot) return;
