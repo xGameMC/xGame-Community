@@ -205,7 +205,6 @@ if(!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES")) return m
 let user = message.mentions.users.first();
 if (message.mentions.users.size < 1) return message.reply('** يجب عليك المنشن اولاً **').then(msg => {msg.delete(5000)});
 let reason = message.content.split(" ").slice(1).join(" ");
-message.guild.member(user).addRole(muteRole);
 const muteembed = new Discord.RichEmbed()
 }
 });
