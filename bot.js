@@ -29,9 +29,7 @@ client.user.setGame(`Nothing`,"http://twitch.tv/S-F")
 });
 const Discord = require('discord.js');
 const client = new Discord.Client(); 
-var roles = {}; 
 var prefix = '$'; 
-var token = "";
 
 console.log("__________________");
 console.log("");
