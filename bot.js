@@ -192,8 +192,8 @@ client.on('ready', () => {
 }); 
 
 
-if message.content.startswith("$give"):
-    team_list = ["gold", "diamound", "emerald"]
+if message.content.startswith("%team"):  
+team_list = ["gold", "diamound", "emerald"]
     entered_team = message.content[6:].lower()
     role = discord.utils.get(message.server.roles, name=entered_team)
     roles = [
