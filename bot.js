@@ -162,7 +162,6 @@ client.on('ready', () => {
 		                  message.channel.send('**$shop server **');
 
 
-			                message.channel.send('** https://discord.gg/rknN5TE **');
 
               message.channel.sendFile("./photoshop.PNG");
                
