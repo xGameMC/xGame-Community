@@ -192,6 +192,35 @@ client.on('ready', () => {
 }); 
 
 
+if message.content.startswith("$give"):
+    team_list = ["gold", "diamound", "emerald"]
+    entered_team = message.content[6:].lower()
+    role = discord.utils.get(message.server.roles, name=entered_team)
+    roles = [
+        # IDs of the roles for the teams
+        "466825515227938817",
+        "466825625798311941",
+        "466825737639559198",
+    ]
+    for r in message.author.roles:
+        if r.id in roles:
+            # If a role in the user's list of roles matches one of those we're checking
+            await client.send_message(message.channel, "لديك بالفعل دور فريق. إذا كنت تريد التبديل ، فيمكنك إرسال رسالة إلى مشرف.")
+            return
+    if role is None or role.name not in team_list:
+        # If the role wasn't found by discord.utils.get() or is a role that we don't want to add:
+        await client.send_message(message.channel, "Team doesn't exist. Teams that do are `blue`, `red`, and `yellow`.\nBlue is Mystic, red is Valor, and yellow is Instinct.")
+        return
+    elif role in message.author.roles:
+        # If they already have the role
+        await client.send_message(message.channel, "You already have this role.")
+    else:
+        try:
+            await client.add_roles(message.author, role)
+            await client.send_message(message.channel, "Successfully added role {0}".format(role.name))
+        except discord.Forbidden:
+            await client.send_message(message.channel, "I don't have perms to add roles.")
+
 
 
 
