@@ -35,7 +35,7 @@ client.on('message', message => {
   let command = message.content.split(" ")[0];
   command = command.slice(prefix.length);
   let args = message.content.split(" ").slice(1);
-  if (command == "kick") {
+  if (command == "$kick") {
       if(!message.member.hasPermission('KICK_MEMBERS')) return message.reply('You Dont Have **KICK_MEMBERS** Permission!');
         var member= message.mentions.members.first();
         member.kick().then((member) => {
@@ -51,7 +51,7 @@ client.channels.get(`ID Chat admin`).sendMessage("** تم طرد هذا الشخ
 
 client.on("message", message => {
   let command = message.content.split(" ")[0];
-  if (command === "*mute") {
+  if (command === "$mute") {
           if(!message.channel.guild) return message.reply('**:x: اسف لكن هذا الامر للسيرفرات فقط **');
                   if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("** لا يوجد لديك برمشن 'Manage Roles' **");
   let user = message.mentions.users.first();
@@ -79,7 +79,7 @@ client.on("message", message => {
   }
 
 };
-    if (command === "*unmute") {
+    if (command === "$unmute") {
           if(!message.channel.guild) return message.reply('**:x: اسف لكن هذا الامر للسيرفرات فقط **');         
         if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("** لا يوجد لديك برمشن 'Manage Roles' **");
   let user = message.mentions.users.first();
