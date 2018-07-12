@@ -27,7 +27,7 @@ client.user.setGame(`Nothing`,"http://twitch.tv/S-F")
   console.log('')
   console.log('')
 });
-client.on("message", message => {
+lient.on("message", message => {
   let command = message.content.split(" ")[0];
   if (command === "$mute") {
           if(!message.channel.guild) return message.reply(':x: اسف لكن هذا الامر للسيرفرات فقط ');
@@ -56,6 +56,7 @@ client.on("message", message => {
     });
   }
 
+};
 };
 
 client.login(process.env.BOT_TOKEN);
