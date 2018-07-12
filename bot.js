@@ -192,6 +192,37 @@ client.on('ready', () => {
 }); 
 
 
+  var prefix = "$";
+
+client.on('message', message => {
+  if (message.author.bot) return;
+  if (!message.content.startsWith(prefix)) return;
+  if(!message.channel.guild) return;
+  if(!message.member.hasPermission('MANAGE_MESSAGES')) return;
+  if (message.mentions.users.size < 1) return;
+
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+  
+ 
+
+if (command == "warn") {
+    let say = new Discord.RichEmbed()
+    .setDescription(args.join("  "))
+    .setColor(0x831f18)
+    message.channel.sendEmbed(say);
+    client.channels.get("466438043906080769").send(`**=========================================**`)
+    client.channels.get("466438043906080769").send(`**New Warn !**`)
+    client.channels.get("466438043906080769").send({embed : say})
+    client.channels.get("466438043906080769").send(`**Admin : ${message.author.username}#${message.author.discriminator}**`)
+    client.channels.get("466438043906080769").send(`**In Channel : ${message.channel}**`)
+    message.delete();
+  }
+
+
+});
 
 
 
