@@ -126,61 +126,61 @@ __~~The King Bot~~__ By: Peery#0609
 ╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╭━╯┃
 ╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╰━━╯
 ╔[❖════════════❖]╗
-             Prefix = ' * '
+             Prefix = ' $ '
 ╚[❖════════════❖]╝
 
 ╔[❖════════════❖]╗
              Admin Commands
 ╚[❖════════════❖]╝
 
- ❖ *kick <mention > ➾ kick member from server
+ ❖ $kick <mention > ➾ kick member from server
 
- ❖ *clear ➾ clear chat ( not ready yet fixing)
+ ❖ $clear ➾ clear chat ( not ready yet fixing)
  
- ❖ *mute < mention > ➾ mute member
+ ❖ $mute < mention > ➾ mute member
 
- ❖ *unmute <mention> ➾ unmute member
+ ❖ $unmute <mention> ➾ unmute member
 
- ❖ *ct <name> ➾ create channel
+ ❖ $ct <name> ➾ create channel
 
- ❖ *cv <name> create voice channel
+ ❖ $cv <name> create voice channel
   
- ❖ *bc <message> ➾ message all members in server
+ ❖ $bc <message> ➾ message all members in server
 
 
 ╔[❖════════════❖]╗
             General  Commands
 ╚[❖════════════❖]╝
 
-❖ *roll <number> ➾ role 
+❖ $roll <number> ➾ role 
 
-❖ *date ➾ see date
+❖ $date ➾ see date
 
-❖ *member ➾ members info
+❖ $member ➾ members info
 
-❖ *ser-av ➾ server avatar
+❖ $ser-av ➾ server avatar
 
-❖ *uptime ➾ to see uptime
+❖ $uptime ➾ to see uptime
 
-❖ *invs ➾ server invite link
+❖ $invs ➾ server invite link
 
-❖ *own ➾ bot owner
+❖ $own ➾ bot owner
 
-❖ *id ➾ your id
+❖ $id ➾ your id
 
-❖ *avatar ➾ your avatar account
+❖ $avatar ➾ your avatar account
 
-❖ *help-en ➾ help by arabic
+❖ $help-en ➾ help by arabic
 
-❖ *help-en ➾ help by english
+❖ $help-en ➾ help by english
 
-❖ *ping ➾ to see ping
+❖ $ping ➾ to see ping
 
-❖ *bot ➾ bot informations 
+❖ $bot ➾ bot informations 
 
-❖ *server ➾ server informations 
+❖ $server ➾ server informations 
 
-❖ *invite ➾ bot invite link
+❖ $invite ➾ bot invite link
 
 ╔[❖════════════❖]╗
                     Welcome
@@ -191,11 +191,11 @@ to enable welcome message do channel name "wlc"
 
 ==================================================================
 
-Server support: https://discord.gg/twdHNJT
+Server support: https://discord.gg/rknN5TE
 
 ==================================================================
 
-bot invite link: https://discordapp.com/oauth2/authorize?client_id=388700863893602304&scope=bot&permissions=0
+bot invite link: noon
 
 ==================================================================
 
@@ -226,61 +226,61 @@ __~~The King Bot~~__ By: Peery#0609
 ╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╭━╯┃
 ╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╰━━╯
 ╔[❖════════════❖]╗
-                  Prefix = ' * '
+                  Prefix = ' $ '
 ╚[❖════════════❖]╝
 
 ╔[❖════════════❖]╗
                     اوامر ادارية
 ╚[❖════════════❖]╝
 
- ❖  *kick <mention > ➾ لطرد عضو
+ ❖  $kick <mention > ➾ لطرد عضو
  
- ❖ *mute < mention > ➾ اسكات عضو 
+ ❖ $mute < mention > ➾ اسكات عضو 
 
- ❖ *clear  ➾ لتنضيف المحادثة (fixing)
+ ❖ $clear  ➾ لتنضيف المحادثة (fixing)
 
- ❖ *cv <name> ➾ صنع روم صوتية
+ ❖ $cv <name> ➾ صنع روم صوتية
 
- ❖ *ct <name> ➾ صنع روم كتابية
+ ❖ $ct <name> ➾ صنع روم كتابية
 
- ❖ *unmute <mention> ➾ فك الاسكات من العضو
+ ❖ $unmute <mention> ➾ فك الاسكات من العضو
   
- ❖ *bc <message> ➾ لارسال رسالة لجميع اعضاء السيرفر
+ ❖ $bc <message> ➾ لارسال رسالة لجميع اعضاء السيرفر
 
 
 ╔[❖════════════❖]╗
                     اوامر عامة
 ╚[❖════════════❖]╝
 
-❖ *roll <number> ➾ قرعة
+❖ $roll <number> ➾ قرعة
 
-❖ *member ➾ معلومات الاعضاء
+❖ $member ➾ معلومات الاعضاء
 
-❖ *avatar ➾ شعار حسابك
+❖ $avatar ➾ شعار حسابك
 
-❖ *ser-av ➾ شعار السيرفر
+❖ $ser-av ➾ شعار السيرفر
 
-❖ *uptime ➾ مدة التشغيل
+❖ $uptime ➾ مدة التشغيل
 
-❖ *id ➾ اي دي
+❖ $id ➾ اي دي
 
-❖ *date ➾ التاريخ
+❖ $date ➾ التاريخ
 
-❖ *invs ➾ رابط دخول سيرفرك
+❖ $invs ➾ رابط دخول سيرفرك
 
-❖ *own ➾ مسؤول البوت
+❖ $own ➾ مسؤول البوت
 
-❖ *help-ar ➾ المساعدة في العربي
+❖ $help-ar ➾ المساعدة في العربي
 
-❖ *help-en ➾ المساعدة في الانجليزيلة
+❖ $help-en ➾ المساعدة في الانجليزيلة
 
-❖ *ping ➾ عرض سرعه اتصال البوت
+❖ $ping ➾ عرض سرعه اتصال البوت
 
-❖ *bot ➾ معلومات البوت
+❖ $bot ➾ معلومات البوت
 
-❖ *server ➾ معلومات السيرفر
+❖ $server ➾ معلومات السيرفر
 
-❖ *invite ➾ رابط دعوة البوت
+❖ $invite ➾ رابط دعوة البوت
 
 ╔[❖════════════❖]╗
                       الترحيب
