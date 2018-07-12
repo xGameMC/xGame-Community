@@ -126,9 +126,23 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
          client.on('message', message => {
-            if (message.content === '$shop') {
+            if (message.content === '$shop server') {
               message.channel.send('**المتجر سوف يتوفر عن قريب cooming soon **');
-			                message.channel.send('** https://discord.gg/rknN5TE **');
+			                message.channel.send('** SOON **');
+
+              message.channel.sendFile("./photoshop.PNG");
+               
+
+            }
+});
+
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
+         client.on('message', message => {
+            if (message.content === '$shop discord') {
+              message.channel.send('**المتجر سوف يتوفر عن قريب cooming soon **');
+			                message.channel.send('** SOON **');
 
               message.channel.sendFile("./photoshop.PNG");
                
