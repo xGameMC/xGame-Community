@@ -51,7 +51,7 @@ if (message.content.startsWith("$cv")) {
 
       client.on('message', message => {
                                 if(!message.channel.guild) return;
-                        if (message.content.startsWith('*ping')) {
+                        if (message.content.startsWith('$ping')) {
                             if(!message.channel.guild) return;
                             var msg = `${Date.now() - message.createdTimestamp}`
                             var api = `${Math.round(client.ping)}`
@@ -66,7 +66,7 @@ if (message.content.startsWith("$cv")) {
                     });
 
 client.on('message', message => {
-    if (message.content.startsWith("*avatar")) {
+    if (message.content.startsWith("$avatar")) {
         var mentionned = message.mentions.users.first();
     var x5bzm;
       if(mentionned){
