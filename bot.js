@@ -187,3 +187,4 @@ client.on('ready', () => {
         }
       }}).then(msg => {msg.delete(3000)});
                           }
+	 });
