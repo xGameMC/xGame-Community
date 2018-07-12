@@ -150,23 +150,4 @@ client.on('ready', () => {
             }
 });
 
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-});
-         client.on('message', message => {
-            if (message.content === '$shop') {
-              message.channel.send('**اذا اردت متجر الدسكورد اكتب الامر الاتي **');
-		                  message.channel.send('**$shop disocrd **');
-		                  message.channel.send('**اذا اردت متجر السيرفر اكتب الامر الاتي **');
-
-		                  message.channel.send('**$shop server **');
-
-
-
-              message.channel.sendFile("./photoshop.PNG");
-               
-
-            }
-});
-
 
