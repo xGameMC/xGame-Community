@@ -46,14 +46,13 @@ client.user.setGame(`xGameMC`,"http://twitch.tv/S-F")
         }
       }}).then(msg => {msg.delete(3000)});
                           }
-    });
-
-    
-    
     
         
   
-  
+  });
+
+
+
 client.on('message', message => {
     if (message.content.startsWith("^avatar")) {
         var mentionned = message.mentions.users.first();
@@ -70,15 +69,6 @@ client.on('message', message => {
       message.channel.sendEmbed(embed);
     }
 });
-  
-  
-  
-  
-
-  
-
-
-    
-}); 
+   
 
 client.login(process.env.BOT_TOKEN);
