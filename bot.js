@@ -32,7 +32,7 @@ client.user.setGame(`xGameMC`,"")
  
             var args = message.content.substring(prefix.length).split(" ");
             if (message.content.startsWith(prefix + "clear")) {
-   if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply('لا يمكنك كتابه الامر الاتي**');
+   if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply('لا يمكنك كتابه الامر الاتي');
         var msg;
         msg = parseInt();
       
