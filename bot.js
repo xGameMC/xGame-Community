@@ -174,7 +174,6 @@ const fs = require("fs"); //npm i fs
 const Canvas = require("canvas");//for linux = npm i canvas | for windows = npm i canvas-prebuilt
 const jimp = require("jimp");// npm i jimp
 const prefix = "$"; // prefix
-const client = new Discord.Client();
 const id = JSON.parse(fs.readFileSync("./id/mozo.json", "utf8"));
 client.on("message", message => {
   if (message.author.bot) return;
