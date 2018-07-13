@@ -126,7 +126,7 @@ client.on("message", message => {
   const embed = new Discord.RichEmbed()
     .setColor(0x00AE86)
     .setTimestamp()
-    .addField('الأستعمال:', 'اسكت/احكي')
+    .addField('الأستعمال:', '$mute')
     .addField('تم ميوت:', `${user.username}#${user.discriminator} (${user.id})`)
     .addField('بواسطة:', `${message.author.username}#${message.author.discriminator}`)
    
