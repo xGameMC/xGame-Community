@@ -109,7 +109,7 @@ ${user} االسلام عليكم لقد تلقيت انذار من قبل اح�
 
 const fs = require('fs');
 let points = JSON.parse(fs.readFileSync("./points.json", "utf8"));
-const prefix = "$id";
+const prefix = "$";
 
 client.on("message", message => {
   if (!message.content.startsWith(prefix)) return;
