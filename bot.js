@@ -125,7 +125,6 @@ client.on("message", message => {
   if (curLevel > userData.level) {
     // Level up!
     userData.level = curLevel;
-     message.reply(  ${curLevel}).then(m => m.delete(100000));
   }
 
   if (message.content.startsWith(prefix + "level")) {
