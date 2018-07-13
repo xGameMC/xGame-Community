@@ -115,26 +115,42 @@ client.on("message", message => {
 	} 
 });
    
-  var prefix = "$";
-
-client.on('message', message => {
-  if (message.author.bot) return;
-  if (!message.content.startsWith(prefix)) return;
-  if(!message.channel.guild) return;
-  if(!message.member.hasPermission('MANAGE_MESSAGES')) return;
-  if (message.mentions.users.size < 1) return;
-
-  let command = message.content.split(" ")[0];
-  command = command.slice(prefix.length);
-
-  let args = message.content.split(" ").slice(1);
-  
- 
-
-if (command == "$warn") {
-    let say = new Discord.RichEmbed()
-    .setDescription(args.join("  "))
-    .setColor(0x831f18)
-    message.channel.sendEmbed(say);
+client.on('message', message => {   
+if (message.author.boss) return;
+var prefix = "$";
+if (!message.content.startsWith(prefix)) return;
+let command = message.content.split(" ")[0];
+command = command.slice(prefix.length);
+let args = message.content.split(" ").slice(1);
+if (command == "warn") {
+if (!message.channel.guild) return;
+if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.reply("انت لا تملك صلاحيات !! ").then(msg => msg.delete(5000));
+if(!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES")) return message.reply("البوت لايملك صلاحيات ").then(msg => msg.delete(5000));;
+let user = message.mentions.users.first();
+if (message.mentions.users.size < 1) return message.reply('** يجب عليك المنشن اولاً **').then(msg => {msg.delete(5000)});
+let reason = message.content.split(" ").slice(1).join(" ");
+message.guild.member(user).addRole(muteRole);
+const muteembed = new Discord.RichEmbed()
+.setColor("RANDOM")
+.setAuthor(`Warned!`, user.displayAvatarURL)
+.setThumbnail(user.displayAvatarURL)
+.addField("**:busts_in_silhouette:  المستخدم**",  '**[ ' + `${user.tag}` + ' ]**',true)
+.addField("**:hammer:  تم بواسطة **", '**[ ' + `${message.author.tag}` + ' ]**',true)
+.addField("**:book:  السبب**", '**[ ' + `${reason}` + ' ]**',true)
+.addField("User", user, true)  
+message.channel.send({embed : muteembed});
+var muteembeddm = new Discord.RichEmbed()
+.setAuthor(`Warn!`, user.displayAvatarURL)
+.setDescription(`
+${user} اخذت ميوت
+ ${message.author.tag} من
+[ ${reason} ] : السبب
+اذا كانت العقوبة عن طريق الخطأ تكلم مع المسؤلين 
+`)
+.setFooter(`في سيرفر : ${message.guild.name}`)
+.setColor("RANDOM")
+ user.send( muteembeddm);
+}
+});
 
 client.login(process.env.BOT_TOKEN);
