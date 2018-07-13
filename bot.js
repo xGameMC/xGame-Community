@@ -129,7 +129,6 @@ client.on("message", message => {
 
   if (message.content.startsWith(prefix + "level")) {
 
-      message.reply(** انت في المستوى ${userData.level}  مع ${userData.points} نقاط . **).then(m => m.delete(100000));
 
   }
   fs.writeFile("./points.json", JSON.stringify(points), (err) => {
