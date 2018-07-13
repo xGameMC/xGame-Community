@@ -120,13 +120,13 @@ client.on("message", message => {
   let user = message.mentions.users.first();
   let modlog = client.channels.find('name', 'mute-log');
   let muteRole = client.guilds.get(message.guild.id).roles.find('name', 'Muted');
-  if (!muteRole) return message.reply("** لا يوجد رتبة الميوت 'Muted' **").catch(console.error);
+  if (!muteRole) return message.reply("** لا يوجد رتبة الميوت '467233307193507850' **").catch(console.error);
   if (message.mentions.users.size < 1) return message.reply('** يجب عليك المنشن اولاً **').catch(console.error);
  
   const embed = new Discord.RichEmbed()
     .setColor(0x00AE86)
     .setTimestamp()
-    .addField('الأستعمال:', '$mute')
+    .addField('الأستعمال:', 'اسكات عضو')
     .addField('تم ميوت:', `${user.username}#${user.discriminator} (${user.id})`)
     .addField('بواسطة:', `${message.author.username}#${message.author.discriminator}`)
    
