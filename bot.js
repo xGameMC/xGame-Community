@@ -32,7 +32,7 @@ client.user.setGame(`xGameMC`,"")
  
             var args = message.content.substring(prefix.length).split(" ");
             if (message.content.startsWith(prefix + "clear")) {
-   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('? | **لا يوجد لديك صلاحية لمسح الشات**');
+   if(!message.member.hasPermission('Administator')) return message.reply('لا يمكنك كتابه الامر الاتي**');
         var msg;
         msg = parseInt();
       
