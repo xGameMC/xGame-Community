@@ -144,7 +144,6 @@ client.on("message", message => {
  
 });
 
-const credits = JSON.parse(("/creditsCode.json", "utf8"));
 const coolDown = new Set();
 
 client.on('message',async message => {
