@@ -107,36 +107,29 @@ ${user} االسلام عليكم لقد تلقيت انذار من قبل اح�
 }
 });
 
-client.on('message', eyad => {
-  if (eyad.content.startsWith('mute')) {
-if (!eyad.member.hasPermission("MOVE_MEMBERS")) return eyad.channel.send("**انت لا تمتلك الخاصيه المطلوبه** | ❎ ");
-let men = eyad.mentions.users.first()
-let mas = eyad.author
-if(!men) return eyad.channel.send('`منشن الشخص الذي تريد ان تعطيه ميوت كتابي` ');
-eyad.guild.channels.forEach(c => {
-c.overwritePermissions(men.id, {
-          SEND_MESSAGES: false
-})
-    })
-const embed = new Discord.RichEmbed()
-.setColor("RANDOM")
-.setDescription(`**
- <@${men.id}>
-لقد تم اعطائك ميوت كتابي
-بواسطة : <@${eyad.author.id}> **`)
-.setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452090205793681419/fd684707fc14f41663f15ecebf089f06.png")
-          
-client.users.get(men.id).sendEmbed(embed)
-const Embed11 = new Discord.RichEmbed()
-.setColor("RANDOM")
-.setAuthor(eyad.guild.name, eyad.guild.iconURL)
-.setDescription(`          <@${men.id}>
-لقد تم اعطائه الميوت الكتابي بنجاح
-بواسطة : <@${eyad.author.id}> `)
-.setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452090205793681419/fd684707fc14f41663f15ecebf089f06.png")
-eyad.channel.sendEmbed(Embed11).then(eyad => {eyad.delete(20000)})
-    }
+client.on('message',function(message) {
+    let messageArray = message.content.split(' ');
+    let muteRole = message.guild.roles.get('467233307193507850') || message.guild.roles.find('name', 'Muted');
+    let muteMember = message.mentions.members.first();
+    let muteReason = messageArray[2];
+    let muteDuration = messageArray[3];
+   if(message.content.startsWith(prefix + "mute")) {
+       if(!muteRole) return message.guild.createRole({name: 'Muted'}).then(message.guild.channels.forEach(chan => chan.overwritePermissions(muteRole, {SEND_MESSAGES:false,ADD_REACTIONS:false})));
+       if(!message.guild.member(message.author).hasPermission("MANAGE_ROLES")) return message.channel.send('ℹ **Error:** ``خصائص مفقودة``');
+       if(!message.guild.member(client.user).hasPermission("MANAGE_ROLES")) return message.channel.send('ℹ **Error:** ``خصائص مفقودة مني``');
+       if(!muteMember) return message.channel.send('ℹ **Error:** ``منشن شخص``');
+       if(!muteReason) return message.channel.send('ℹ **Error:** ``حدد سباّ``');
+       if(!muteDuration) return message.channel.send('ℹ **Error:** ``حدد وقت زمني``');
+       if(!muteDuration.match(/[1-7][s,m,h,d,w]/g)) return message.channel.send('ℹ **Error:** ``حدد وقت زمني صحيح``');
+       message.channel.send(`✅ **تم اعطاء العضو ميوت : ${muteMember}**`);
+       muteMember.addRole(muteRole);
+       muteMember.setMute(true)
+       .then(() => { setTimeout(() => {
+           muteMember.removeRole(muteRole)
+           muteMember.setMute(false)
+       }, mmss(muteDuration));
+       });
+   } 
 });
- 
 
 client.login(process.env.BOT_TOKEN);
