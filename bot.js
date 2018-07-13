@@ -80,10 +80,10 @@ command = command.slice(prefix.length);
 let args = message.content.split(" ").slice(1);
 if (command == "warn") {
 if (!message.channel.guild) return;
-if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.reply("انت لا تملك صلاحيات !! ").then(msg => msg.delete(5000));
+if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.reply("لايمكنك كتباه الامر الاتي فأنت لست عضو من الاداره ").then(msg => msg.delete(5000));
 if(!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES")) return message.reply("البوت لايملك صلاحيات ").then(msg => msg.delete(5000));;
 let user = message.mentions.users.first();
-if (message.mentions.users.size < 1) return message.reply('** يجب عليك المنشن اولاً **').then(msg => {msg.delete(5000)});
+if (message.mentions.users.size < 1) return message.reply('** يجب عليك وضع المنشن **').then(msg => {msg.delete(5000)});
 let reason = message.content.split(" ").slice(1).join(" ");
 message.guild.member(user).addRole(467186545707712514);
 const muteembed = new Discord.RichEmbed()
