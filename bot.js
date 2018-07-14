@@ -192,7 +192,7 @@ fs.writeFile("./creditsCode.json", JSON.stringify(credits), (err) => {
   }
 
     if(message.content.startsWith(prefix + "$credit" || prefix + "credits")) {
-message.channel.send({messageauthor.username}, your 💳 balance is \`${userData.credits}``.);
+message.channel.send({messageauthorusername}, your 💳 balance is \`${userData.credits}``.);
 }
 });
 
