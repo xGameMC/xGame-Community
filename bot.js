@@ -171,19 +171,11 @@ eyad.channel.sendEmbed(Embed11).then(eyad => {eyad.delete(20000)})
 });
 
 client.on('message', message => {
-if (message.content.startsWith("$ban")) {
-  if (!eyad.member.hasPermission("MOVE_MEMBERS")) return eyad.channel.send("**انت لا تمتلك الخاصيه المطلوبه** | ❎ ");
- let men = eyad.mentions.users.first()
- let mas = eyad.author
-    var mention = message.mentions.members.first();
-    if(!mention) return message.channel.send("يجب منشن العضو");
-
-    mention.ban("By: " + message.author.tag);
-    
-    message.channel.send("تم أعطاء باند الى : " + mention.tag);
-};
+    if (message.author.id === client.user.id) return;
+            if (message.content.startsWith(prefix + "$ping")) {
+        message.channel.sendMessage(':ping_pong: Pong! In `' + `${client.ping}` + ' ms`');
+    }
 });
-
 
 
 client.login(process.env.BOT_TOKEN);
