@@ -129,7 +129,6 @@ client.users.get(men.id).sendEmbed(embed)
 const Embed11 = new Discord.RichEmbed()
 .setColor("RANDOM")
 .setAuthor(eyad.guild.name, eyad.guild.iconURL)
-.setDescription(`          <@${men.id}>
 لقد تم اعطائه الميوت الكتابي بنجاح
 .addField("**:book:  السبب**", '**[ ' + `${reason}` + ' ]**',true)
 .setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452090205793681419/fd684707fc14f41663f15ecebf089f06.png")
