@@ -70,41 +70,6 @@ client.on('message', message => {
 });
 
    
-client.on('message', message => {   
-if (message.author.boss) return;
-var prefix = "$";
-if (!message.content.startsWith(prefix)) return;
-let command = message.content.split(" ")[0];
-command = command.slice(prefix.length);
-let args = message.content.split(" ").slice(1);
-if (command == "warn") {
-if (!message.channel.guild) return;
-if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.reply("لايمكنك كتابة الامر الاتي  ").then(msg => msg.delete(5000));
-if(!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES")) return message.reply("البوت لايملك صلاحيات ").then(msg => msg.delete(5000));;
-let user = message.mentions.users.first();
-if (message.mentions.users.size < 1) return message.reply( يجب عليك وضع المنشن ).then(msg => {msg.delete(5000)});
-let reason = message.content.split(" ").slice(1).join(" ");
-message.guild.member(user).addRole(467186545707712514);
-const muteembed = new Discord.RichEmbed()
-.setColor("RANDOM")
-.setAuthor(`Warned!`, user.displayAvatarURL)
-.setThumbnail(user.displayAvatarURL)
-.addField("**:busts_in_silhouette:  المستخدم**",  '**[ ' + `${user.tag}` + ' ]**',true)
-.addField("**:book:  السبب**", '**[ ' + `${reason}` + ' ]**',true)
-.addField("User", user, true)  
-message.channel.send({embed : muteembed});
-var muteembeddm = new Discord.RichEmbed()
-.setAuthor(`Warn!`, user.displayAvatarURL)
-.setDescription(`
-${user} االسلام عليكم لقد تلقيت انذار من قبل احد الاداره 
-[ ${reason} ] : السبب
-
-`)
-.setFooter(`في سيرفر : ${message.guild.name}`)
-.setColor("RANDOM")
- user.send( muteembeddm);
-}
-});
 client.on('message', eyad => {
   if (eyad.content.startsWith('mute')) {
 if (!eyad.member.hasPermission("MOVE_MEMBERS")) return eyad.channel.send("**انت لا تمتلك الخاصيه المطلوبه** | ❎ ");
