@@ -71,7 +71,7 @@ client.on('message', message => {
 
    
 client.on('message', eyad => {
-  if (eyad.content.startsWith('mute')) {
+  if (eyad.content.startsWith('$mute')) {
 if (!eyad.member.hasPermission("MOVE_MEMBERS")) return eyad.channel.send("**انت لا تمتلك الخاصيه المطلوبه** | ❎ ");
 let men = eyad.mentions.users.first()
 let mas = eyad.author
@@ -100,28 +100,5 @@ const Embed11 = new Discord.RichEmbed()
 eyad.channel.sendEmbed(Embed11).then(eyad => {eyad.delete(20000)})
     }
 });
-const embed = new Discord.RichEmbed()
-.setColor("RANDOM")
-.setDescription(`**
- <@${men.id}>
-تم فك الميوت الكتابي 
-بواسطة : <@${eyad.author.id}> **`)
-.setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452093541003296788/start-button-hi.png")
-          
-client.users.get(men.id).sendEmbed(embed)
-const Embed11 = new Discord.RichEmbed()
-.setColor("RANDOM")
-.setAuthor(eyad.guild.name, eyad.guild.iconURL)
-.setDescription(`          <@${men.id}>
-تم فك الميوت الكتابي 
-بواسطة : <@${eyad.author.id}>
-`)
-.setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452093541003296788/start-button-hi.png")
-eyad.channel.sendEmbed(Embed11).then(eyad => {eyad.delete(20000)})
-    }
-});
-
-
-
 
 client.login(process.env.BOT_TOKEN);
