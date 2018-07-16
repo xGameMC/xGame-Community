@@ -99,7 +99,6 @@ var muteembeddm = new Discord.RichEmbed()
 ${user} االسلام عليكم لقد تلقيت انذار من قبل احد الاداره 
 [ ${reason} ] : السبب
 
-اذا كان الانذار فيه خطأ ف يرجى اخبار الاداره
 `)
 .setFooter(`في سيرفر : ${message.guild.name}`)
 .setColor("RANDOM")
@@ -132,7 +131,7 @@ const Embed11 = new Discord.RichEmbed()
 .setAuthor(eyad.guild.name, eyad.guild.iconURL)
 .setDescription(`          <@${men.id}>
 لقد تم اعطائه الميوت الكتابي بنجاح
-بواسطة : <@${eyad.author.id}> `)
+.addField("**:book:  السبب**", '**[ ' + `${reason}` + ' ]**',true)
 .setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452090205793681419/fd684707fc14f41663f15ecebf089f06.png")
 eyad.channel.sendEmbed(Embed11).then(eyad => {eyad.delete(20000)})
     }
