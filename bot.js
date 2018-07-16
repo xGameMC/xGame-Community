@@ -105,9 +105,8 @@ ${user} االسلام عليكم لقد تلقيت انذار من قبل اح�
  user.send( muteembeddm);
 }
 });
-
 client.on('message', eyad => {
-  if (eyad.content.startsWith('$mute')) {
+  if (eyad.content.startsWith('mute')) {
 if (!eyad.member.hasPermission("MOVE_MEMBERS")) return eyad.channel.send("**انت لا تمتلك الخاصيه المطلوبه** | ❎ ");
 let men = eyad.mentions.users.first()
 let mas = eyad.author
@@ -129,13 +128,13 @@ client.users.get(men.id).sendEmbed(embed)
 const Embed11 = new Discord.RichEmbed()
 .setColor("RANDOM")
 .setAuthor(eyad.guild.name, eyad.guild.iconURL)
+.setDescription(`          <@${men.id}>
 لقد تم اعطائه الميوت الكتابي بنجاح
-.addField("**:book:  السبب**", '**[ ' + `${reason}` + ' ]**',true)
+بواسطة : <@${eyad.author.id}> `)
 .setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452090205793681419/fd684707fc14f41663f15ecebf089f06.png")
 eyad.channel.sendEmbed(Embed11).then(eyad => {eyad.delete(20000)})
     }
 });
-
 client.on('message', eyad => {
   if (eyad.content.startsWith('$unmute')) {
 if (!eyad.member.hasPermission("MOVE_MEMBERS")) return eyad.channel.send("**انت لا تمتلك الخاصيه المطلوبه** | ❎ ");
