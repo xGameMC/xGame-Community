@@ -179,30 +179,31 @@ client.on('message', message => {
 }
 });
 
-client.on('message',function(message) {
-    let messageArray = message.content.split(' ');
-    let muteRole = message.guild.roles.get('469676959463636992') || message.guild.roles.find('name', 'Muted');
-    let muteMember = message.mentions.members.first();
-    let muteReason = messageArray[2];
-    let muteDuration = messageArray[3];
-    if(message.content.startsWith(prefix + '$mute')) {
-       if(!muteRole) return message.guild.createRole({name: 'Muted'}).then(message.guild.channels.forEach(chan => chan.overwritePermissions(muteRole, {SEND_MESSAGES:false,ADD_REACTIONS:true})));
-       if(!message.guild.member(message.author).hasPermission("MANAGE_ROLES")) return message.channel.send('ℹ **Error:** ``خصائص مفقودة``');
-       if(!message.guild.member(client.user).hasPermission("MANAGE_ROLES")) return message.channel.send('ℹ **Error:** ``خصائص مفقودة مني``');
-       if(!muteMember) return message.channel.send('ℹ **Error:** ``منشن شخص``');
-       if(!muteReason) return message.channel.send('ℹ **Error:** ``حدد سباّ``');
-       if(!muteDuration) return message.channel.send('ℹ **Error:** ``حدد وقت زمني``');
-       if(!muteDuration.match(/[1-7][s,m,h,d,w]/g)) return message.channel.send('ℹ **Error:** ``حدد وقت زمني صحيح``');
-       message.channel.send(`✅ **تم اعطاء العضو ميوت : ${muteMember}**`);
-       muteMember.addRole(muteRole);
-       muteMember.setMute(true)
-       .then(() => { setTimeout(() => {
-           muteMember.removeRole(muteRole)
-           muteMember.setMute(false)
-       }, mmss(muteDuration));
-       });
-   } 
-});
+client.on('message', eyad => {
+  if (eyad.content.startsWith('mute')) {
+if (!eyad.member.hasPermission("MOVE_MEMBERS")) return eyad.channel.send("**لا يمكنك كتابه الامر الاتي** | ❎ ");
+let men = eyad.mentions.users.first()
+let mas = eyad.author
+if(!men) return eyad.channel.send('`***يجب عليك وضع المنشن***` ');
+eyad.guild.channels.forEach(c => {
+c.overwritePermissions(men.id, {
+          SEND_MESSAGES: false
+})
+    })
+const embed = new Discord.RichEmbed()
+.setColor("#0f0f0f")
 
+          
+client.users.get(men.id).sendEmbed(embed)
+const Embed11 = new Discord.RichEmbed()
+.setColor("RANDOM")
+.setAuthor(eyad.guild.name, eyad.guild.iconURL)
+.setDescription(`          <@${men.id}>
+لقد تم اعطائه الميوت الكتابي بنجاح
+بواسطة : <@${eyad.author.id}> `)
+.setThumbnail("None")
+eyad.channel.sendEmbed(Embed11).then(eyad => {eyad.delete(20000)})
+    }
+});
 
 client.login(process.env.BOT_TOKEN);
