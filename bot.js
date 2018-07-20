@@ -180,7 +180,7 @@ client.on('message', message => {
 });
 
 client.on('message', eyad => {
-  if (eyad.content.startsWith('mute')) {
+  if (eyad.content.startsWith('$mute')) {
 if (!eyad.member.hasPermission("MOVE_MEMBERS")) return eyad.channel.send("**لا يمكنك كتابه الامر الاتي** | ❎ ");
 let men = eyad.mentions.users.first()
 let mas = eyad.author
