@@ -101,6 +101,18 @@ eyad.channel.sendEmbed(Embed11).then(eyad => {eyad.delete(20000)})
     }
 });
 
+client.on("guildMemberAdd", function(member) {
+    const wc = member.guild.channels.find("name", "member-log")
+        const embed = new Discord.RichEmbed()
+        .setColor('B90C0C')
+        .setAuthor(member.user.tag, member.user.avatarURL)
+ .setDescription('***قم باطلاع على القوانين, للمحافظ على حسابك من الحظر #rules***')
+.setThumbnail(member.avatarURL)
+  .setImage('https://www.askideas.com/media/13/Welcome-Deers-Sign.jpg')
+        .setTimestamp()
+        return wc.sendEmbed(embed);
+        
+});
 
 
 client.login(process.env.BOT_TOKEN);
