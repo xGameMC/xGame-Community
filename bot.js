@@ -208,6 +208,13 @@ client.on("message", message => {
       }
   });
 
+ client.on('message', message => {
+      var args = message.content.split(/[ ]+/)
+      if(message.content.includes('https://discord.gg')){
+          message.delete()
+      return message.reply(`**يمنع نشر الروابط سوف يؤدي ذلك الى طردك من السيرفر **`)
+      }
+  });
 
 
  	  
