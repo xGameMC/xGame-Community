@@ -184,7 +184,7 @@ client.on('message', eyad => {
 if (!eyad.member.hasPermission("MOVE_MEMBERS")) return eyad.channel.send("**لا يمكنك كتابه الامر الاتي** | ❎ ");
 let men = eyad.mentions.users.first()
 let mas = eyad.author
-if(!men) return eyad.channel.send('`***يجب عليك وضع المنشن***` ');
+if(!men) return eyad.channel.send('**يجب عليك وضع المنشن** ');
 eyad.guild.channels.forEach(c => {
 c.overwritePermissions(men.id, {
           SEND_MESSAGES: false
