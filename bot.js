@@ -173,4 +173,74 @@ const Embed11 = new Discord.RichEmbed()
 eyad.channel.sendEmbed(Embed11).then(eyad => {eyad.delete(20000)})
     }
 });
+
+client.on("message", message => {
+      if (message.content === "$ping") {
+      const embed = new Discord.RichEmbed()
+  .setColor("RANDOM")
+  .addField('**Ping:**' , `${Date.now() - message.createdTimestamp}` + ' ms')
+  message.channel.sendEmbed(embed);
+    }
+});
+    client.on('message', message => {
+     if (message.content === "$id") {
+     let embed = new Discord.RichEmbed()
+  .setThumbnail(message.author.avatarURL)  
+  .setAuthor(message.author.username)
+.setDescription("معلومات عن الحــساب")
+               .setFooter(`Network_Shop_shop.`, '')
+  .setColor("#9B59B6")
+  .addField("اســـم الحســاب", `${message.author.username}`)
+  .addField('كود الحساب الخاص', message.author.discriminator)
+  .addField("الرقـــم الشـــخصي", message.author.id)
+  .addField('بــــوت', message.author.bot)
+  .addField("تاريخ التسجيل", message.author.createdAt)
+     
+     
+  message.channel.sendEmbed(embed);
+    }
+});
+
+ client.on('message', message => {
+      var args = message.content.split(/[ ]+/)
+      if(message.content.includes('facebook.com/')){
+          message.delete()
+      return message.reply(`**يمنع نشر الروابط سوف يؤدي ذلك الى طردك من السيرفر **`)
+      }
+  });
+
+
+client.on('message', async message => {
+
+  if (message.author.x5bz) return;
+  if (!message.content.startsWith(prefix)) return;
+
+
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+
+  if (command == "warn$") { //??? ???????
+
+               if(!message.channel.guild) return message.reply('** This command only for servers**');
+         
+  if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**You Don't Have ` BAN_MEMBERS ` Permission**");
+  let user = message.mentions.users.first();
+  let reason = message.content.split(" ").slice(2).join(" ");
+
+  if (message.mentions.users.size < 1) return message.reply("**???? ???**");
+  if(!reason) return message.reply ("**???? ??? ?????**");
+
+
+  if(!warns[user.id]) warns[user.id] = {
+    warns: 0
+  };
+
+  warns[user.id].warns++;
+
+  fs.writeFile("./warnings.json", JSON.stringify(warns), (err) => {
+    if (err) console.log(err)
+  });
+  
 client.login(process.env.BOT_TOKEN);
