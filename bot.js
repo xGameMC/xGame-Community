@@ -128,7 +128,7 @@ if(message.content.split(' ')[0] == 'لون'){
 if (message.channel.id !== "469662910117969940") return;
      const embedd = new Discord.RichEmbed()
 .setFooter('Requested by '+message.author.username, message.author.avatarURL)
-.setDescription(`**There's No Color With This Number ** ❌ `)
+.setDescription(`**هذا اللون غير متوفر ** ❌ `)
 .setColor(`ff0000`)
 
 if(!isNaN(args) && args.length > 0)
@@ -140,7 +140,7 @@ if(!isNaN(args) && args.length > 0)
 const embed = new Discord.RichEmbed()
               
 .setFooter('Requested by '+message.author.username, message.author.avatarURL)
-.setDescription(`**Color Changed Successfully** ✅ `)
+.setDescription(`**تم تغير لونك بنجاح** ✅ `)
 
 .setColor(`${a.hexColor}`)
 message.channel.sendEmbed(embed);
