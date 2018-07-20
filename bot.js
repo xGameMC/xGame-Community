@@ -242,5 +242,7 @@ client.on('message', async message => {
   fs.writeFile("./warnings.json", JSON.stringify(warns), (err) => {
     if (err) console.log(err)
   });
+	  
+	  
   
 client.login(process.env.BOT_TOKEN);
