@@ -71,18 +71,7 @@ client.on('message', message => {
 
    
 
-client.on("guildMemberAdd", function(member) {
-    const wc = member.guild.channels.find("name", "》welcome《")
-        const embed = new Discord.RichEmbed()
-        .setColor('B90C0C')
-        .setAuthor(member.user.tag, member.user.avatarURL)
- .setDescription('***قم باطلاع على القوانين, للمحافظ على حسابك من الحظر #rules***')
-.setThumbnail(member.avatarURL)
-  .setImage('https://www.askideas.com/media/13/Welcome-Deers-Sign.jpg')
-        .setTimestamp()
-        return wc.sendEmbed(embed);
-        
-});
+
 
 client.on('message', message => {
 	var prefix ="$";
