@@ -228,7 +228,6 @@ const fs = require("fs");
 const Canvas = require("canvas");
 const jimp = require("jimp");
 const prefix = "$"; 
-const Discord = require('discord.js');
 const client = new Discord.Client();
 const id = JSON.parse(fs.readFileSync("./id/mozo.json", "utf8"));
 client.on("message", message => {
