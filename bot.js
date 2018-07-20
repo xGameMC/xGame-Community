@@ -72,10 +72,10 @@ client.on('message', message => {
    
 client.on('message', eyad => {
   if (eyad.content.startsWith('$mute')) {
-if (!eyad.member.hasPermission("MOVE_MEMBERS")) return eyad.channel.send("**انت لا تمتلك الخاصيه المطلوبه** | ❎ ");
+if (!eyad.member.hasPermission("MOVE_MEMBERS")) return eyad.channel.send("**لا يمكنك كتابه الامر الاتي** | ❎ ");
 let men = eyad.mentions.users.first()
 let mas = eyad.author
-if(!men) return eyad.channel.send('`منشن الشخص الذي تريد ان تعطيه ميوت كتابي` ');
+if(!men) return eyad.channel.send(' *يجب عليك وضع المنشن* ');
 eyad.guild.channels.forEach(c => {
 c.overwritePermissions(men.id, {
           SEND_MESSAGES: false
@@ -86,7 +86,6 @@ const embed = new Discord.RichEmbed()
 .setDescription(`**
  <@${men.id}>
 لقد تم اعطائك ميوت كتابي
-بواسطة : <@${eyad.author.id}> **`)
 .setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452090205793681419/fd684707fc14f41663f15ecebf089f06.png")
           
 client.users.get(men.id).sendEmbed(embed)
@@ -96,7 +95,8 @@ const Embed11 = new Discord.RichEmbed()
 .setDescription(`          <@${men.id}>
 لقد تم اعطائه الميوت الكتابي بنجاح
 بواسطة : <@${eyad.author.id}> `)
-.setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452090205793681419/fd684707fc14f41663f15ecebf089f06.png")
+.setThumbnail("https://cdn.discordapp
+.com/attachments/408952032112803850/452090205793681419/fd684707fc14f41663f15ecebf089f06.png")
 eyad.channel.sendEmbed(Embed11).then(eyad => {eyad.delete(20000)})
     }
 });
@@ -112,6 +112,38 @@ client.on("guildMemberAdd", function(member) {
         .setTimestamp()
         return wc.sendEmbed(embed);
         
+});
+
+client.on('message', eyad => {
+  if (eyad.content.startsWith('$unmute')) {
+if (!eyad.member.hasPermission("MOVE_MEMBERS")) return eyad.channel.send("**لا يمكنك كتابه الامر الاتي** | ❎ ");
+ let men = eyad.mentions.users.first()
+ let mas = eyad.author
+ if(!men) return eyad.channel.send('`يجب وضع المنشن `');
+ eyad.guild.channels.forEach(c => {
+ c.overwritePermissions(men.id, {
+         SEND_MESSAGES: true
+         })
+    })
+const embed = new Discord.RichEmbed()
+.setColor("RANDOM")
+.setDescription(`**
+ <@${men.id}>
+تم فك الميوت الكتابي 
+بواسطة : <@${eyad.author.id}> **`)
+.setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452093541003296788/start-button-hi.png")
+          
+client.users.get(men.id).sendEmbed(embed)
+const Embed11 = new Discord.RichEmbed()
+.setColor("RANDOM")
+.setAuthor(eyad.guild.name, eyad.guild.iconURL)
+.setDescription(`          <@${men.id}>
+تم فك الميوت الكتابي 
+بواسطة : <@${eyad.author.id}>
+`)
+.setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452093541003296788/start-button-hi.png")
+eyad.channel.sendEmbed(Embed11).then(eyad => {eyad.delete(20000)})
+    }
 });
 
 
