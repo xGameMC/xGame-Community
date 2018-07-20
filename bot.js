@@ -204,7 +204,7 @@ client.on("message", message => {
       var args = message.content.split(/[ ]+/)
       if(message.content.includes('facebook.com/')){
           message.delete()
-      return message.reply(`**يمنع نشر الروابط سوف يؤدي ذلك الى طردك من السيرفر **`)
+      return message.reply(`**يمنع نشر روابط فيسبوك **`)
       }
   });
 
@@ -212,7 +212,7 @@ client.on("message", message => {
       var args = message.content.split(/[ ]+/)
       if(message.content.includes('https://discord.gg')){
           message.delete()
-      return message.reply(`**يمنع نشر الروابط سوف يؤدي ذلك الى طردك من السيرفر **`)
+      return message.reply(`**يمنع نشر روابط دسكورد **`)
       }
   });
 
@@ -220,7 +220,7 @@ client.on("message", message => {
       var args = message.content.split(/[ ]+/)
       if(message.content.includes('https://free-gg')){
           message.delete()
-      return message.reply(`**يمنع نشر الروابط سوف يؤدي ذلك الى طردك من السيرفر **`)
+      return message.reply(`**Free gg يمنع نشر روابط **`)
       }
   });
  	  
