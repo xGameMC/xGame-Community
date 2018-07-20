@@ -228,7 +228,7 @@ const fs = require("fs");
 const Canvas = require("canvas");
 const jimp = require("jimp");
 const prefix = "$"; 
-const client = new Discord.Client();
+const client = new Discord.();
 const id = JSON.parse(fs.readFileSync("./id/mozo.json", "utf8"));
 client.on("message", message => {
   if (message.author.bot) return;
