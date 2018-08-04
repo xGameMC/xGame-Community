@@ -232,14 +232,14 @@ client.on('message', message =>{
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
     let args = messageArray.slice(1);
-    let prefix = '$';
+    let prefix = '!!';
      
     if(cmd === `${prefix}warn`) {
 
   //!warn @daeshan <reason>
-  if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.reply("No can do pal!");
+  if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.reply("!ليس لديك الصلاحيات لاستخدام هذا الأمر");
   let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0])
-  if(!wUser) return message.reply("Couldn't find them yo");
+  if(!wUser) return message.reply("لا استطيع ايجاد المستخدم المطلوب!");
   if(wUser.hasPermission("MANAGE_MESSAGES")) return message.reply("They waaaay too kewl");
   let reason = args.join(" ").slice(22);
 
@@ -269,21 +269,18 @@ client.on('message', message =>{
 
   if(warns[wUser.id].warns == 2){
     let muterole = message.guild.roles.find(`name`, "muted");
-    if(!muterole) return message.reply("You should create that role dude.");
+    if(!muterole) return message.reply("يجب عليك ان تقوم بصناعة رول `muted`");
 
-    let mutetime = "10s";
+    let mutetime = "1H";
     await(wUser.addRole(muterole.id));
-    message.channel.send(`<@${wUser.id}> has been temporarily muted`);
+    message.channel.send(`<@${wUser.id}> لقد تم اعطاءه ميوت بشكل مؤقت`);
 
     setTimeout(function(){
       wUser.removeRole(muterole.id)
-      message.reply(`<@${wUser.id}> has been unmuted.`)
+      message.reply(`<@${wUser.id}> انفك الميوت عنه`)
     }, ms(mutetime))
   }
-  if(warns[wUser.id].warns == 3){
-    message.guild.member(wUser).ban(reason);
-    message.reply(`<@${wUser.id}> has been banned.`)
-  }
+
 
 }
 });
