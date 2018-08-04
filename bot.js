@@ -254,8 +254,7 @@ client.on('message', message =>{
   });
 
   let warnEmbed = new Discord.RichEmbed()
-  .setDescription("Warns")
-  .setAuthor(message.author.username)
+  
   .setColor("#fc6400")
   .addField("Warned User", `<@${wUser.id}>`)
   .addField("Warned In", message.channel)
