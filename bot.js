@@ -224,69 +224,23 @@ client.on("message", message => {
       }
   });
 
-const fs = require("fs");
-const ms = require("ms");
-let warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
-
-client.on('message', message =>{
-    let messageArray = message.content.split(" ");
-    let cmd = messageArray[0];
-    let args = messageArray.slice(1);
-    let prefix = '$';
-     
-    if(cmd === `${prefix}warn`) {
-
-  //!warn @daeshan <reason>
-  if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.reply("No can do pal!");
-  let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0])
-  if(!wUser) return message.reply("Couldn't find them yo");
-  if(wUser.hasPermission("MANAGE_MESSAGES")) return message.reply("They waaaay too kewl");
-  let reason = args.join(" ").slice(22);
-
-  if(!warns[wUser.id]) warns[wUser.id] = {
-    warns: 0
-  };
-
-  warns[wUser.id].warns++;
-
-  fs.writeFile("./warnings.json", JSON.stringify(warns), (err) => {
-    if (err) console.log(err)
-  });
-
-  let warnEmbed = new Discord.RichEmbed()
-  .setDescription("Warns")
-  .setAuthor(message.author.username)
-  .setColor("#fc6400")
-  .addField("Warned User", `<@${wUser.id}>`)
-  .addField("Warned In", message.channel)
-  .addField("Number of Warnings", warns[wUser.id].warns)
-  .addField("Reason", reason);
-
-  let warnchannel = message.guild.channels.find(`name`, "incidents");
-  if(!warnchannel) return message.reply("Couldn't find channel");
-
-  warnchannel.send(warnEmbed);
-
-  if(warns[wUser.id].warns == 2){
-    let muterole = message.guild.roles.find(`name`, "muted");
-    if(!muterole) return message.reply("You should create that role dude.");
-
-    let mutetime = "10s";
-    await(wUser.addRole(muterole.id));
-    message.channel.send(`<@${wUser.id}> has been temporarily muted`);
-
-    setTimeout(function(){
-      wUser.removeRole(muterole.id)
-      message.reply(`<@${wUser.id}> has been unmuted.`)
-    }, ms(mutetime))
-  }
-  if(warns[wUser.id].warns == 3){
-    message.guild.member(wUser).ban(reason);
-    message.reply(`<@${wUser.id}> has been banned.`)
-  }
-
-}
-});
+client.on('message', msg => { 
+    if (msg.content.startsWith(`$warn`)) {
+      if(!msg.member.hasPermission("MANAGE_MESSAGES")) return;
+       let args = msg.content.split(" ").slice(1);
+      if (!msg.mentions.members.first()) return msg.reply('منشن الشخص المحدد')
+      if (!args[0]) return msg.reply('اكتب السبب')
+      //غير اسم الروم او سوي روم بذا الاسم 
+      if (msg.guild.channels.find('name', 'warn-log')) {
+        //اذا غيرت فوق غير هنا كمان 
+        msg.guild.channels.find('name', 'warn-log').send(`
+      تم اعطائك انذار : ${msg.mentions.members.first()}
+      لأنك قمت بما يلي
+      ${args.join(" ").split(msg.mentions.members.first()).slice(' ')}
+      `)
+      }
+    }
+})
 
  	  
   
