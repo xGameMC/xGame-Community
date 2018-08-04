@@ -237,10 +237,10 @@ client.on('message', message =>{
     if(cmd === `${prefix}warn`) {
 
   //!warn @daeshan <reason>
-  if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.reply("لا يمكنك كتابة الامر الاتي");
+  if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.reply("!ليس لديك الصلاحيات لاستخدام هذا الأمر");
   let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0])
-  if(!wUser) return message.reply("يجب عليك وضع المنشن");
-  if(wUser.hasPermission("MANAGE_MESSAGES")) return message.reply("ا يمكنك كتابة الامر الاتي");
+  if(!wUser) return message.reply("لا استطيع ايجاد المستخدم المطلوب!");
+  if(wUser.hasPermission("MANAGE_MESSAGES")) return message.reply("They waaaay too kewl");
   let reason = args.join(" ").slice(22);
 
   if(!warns[wUser.id]) warns[wUser.id] = {
@@ -262,16 +262,15 @@ client.on('message', message =>{
   .addField("Number of Warnings", warns[wUser.id].warns)
   .addField("Reason", reason);
 
-  let warnchannel = message.guild.channels.find(`name`, "warn-log");
-  if(!warnchannel) return message.reply("Couldn't find channel");
 
-  warnchannel.send(warnEmbed);
+
+  message.channel.send(warnEmbed);
 
   if(warns[wUser.id].warns == 2){
     let muterole = message.guild.roles.find(`name`, "muted");
     if(!muterole) return message.reply("يجب عليك ان تقوم بصناعة رول `muted`");
 
-    let mutetime = "1H";
+    let mutetime = "1day";
     await(wUser.addRole(muterole.id));
     message.channel.send(`<@${wUser.id}> لقد تم اعطاءه ميوت بشكل مؤقت`);
 
