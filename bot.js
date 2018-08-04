@@ -232,14 +232,14 @@ client.on('message', message =>{
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
     let args = messageArray.slice(1);
-    let prefix = '!!';
+    let prefix = '$';
      
     if(cmd === `${prefix}warn`) {
 
   //!warn @daeshan <reason>
-  if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.reply("!ليس لديك الصلاحيات لاستخدام هذا الأمر");
+  if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.reply("لا يمكنك كتابة الامر الاتي");
   let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0])
-  if(!wUser) return message.reply("لا استطيع ايجاد المستخدم المطلوب!");
+  if(!wUser) return message.reply("يجب عليك وضع المنشن");
   if(wUser.hasPermission("MANAGE_MESSAGES")) return message.reply("They waaaay too kewl");
   let reason = args.join(" ").slice(22);
 
