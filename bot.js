@@ -224,12 +224,17 @@ client.on("message", message => {
       }
   });
 
-require("discord.js");
 const fs = require("fs");
 const ms = require("ms");
 let warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
 
-module.exports.run = async (bot, message, args) => {
+client.on('message', message =>{
+    let messageArray = message.content.split(" ");
+    let cmd = messageArray[0];
+    let args = messageArray.slice(1);
+    let prefix = '$';
+     
+    if(cmd === `${prefix}warn`) {
 
   //!warn @daeshan <reason>
   if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.reply("No can do pal!");
@@ -249,7 +254,7 @@ module.exports.run = async (bot, message, args) => {
   });
 
   let warnEmbed = new Discord.RichEmbed()
-  .setDescription("Warns")
+  .setDescription("Warn")
   .setAuthor(message.author.username)
   .setColor("#fc6400")
   .addField("Warned User", `<@${wUser.id}>`)
@@ -281,10 +286,7 @@ module.exports.run = async (bot, message, args) => {
   }
 
 }
-
-module.exports.help = {
-  name: "warn"
-}
+});
 
 
  	  
