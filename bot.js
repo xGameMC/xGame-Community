@@ -1,9 +1,10 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const prefix = '.'
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`xGameMC`,"")
+client.user.setGame(`xGameMC`,"http://www.xGameMC.ga")
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
@@ -25,8 +26,7 @@ client.user.setGame(`xGameMC`,"")
   console.log('╚[════════════]╝')
   console.log('')
   console.log('')
-});
-  client.on("message", message => {
+client.on("message", message => {
     var prefix = "$";
  
             var args = message.content.substring(prefix.length).split(" ");
