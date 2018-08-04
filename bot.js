@@ -278,6 +278,6 @@ client.on('message', message =>{
       message.reply(`<@${wUser.id}> انفك الميوت عنه`)
     }, ms(mutetime))
   }
-
+});
 
 client.login(process.env.BOT_TOKEN);
