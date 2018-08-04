@@ -223,6 +223,9 @@ client.on("message", message => {
       return message.reply(`**Free gg يمنع نشر روابط **`)
       }
   });
-
+	
+	
+	
+});
 
 client.login(process.env.BOT_TOKEN);
