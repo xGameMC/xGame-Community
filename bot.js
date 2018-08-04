@@ -288,11 +288,11 @@ var kboosh_id = "475220757723742229";
                     var x = "0";
 kboosh.on("voiceChannelJoin", (msg) => {
     x++;
-    kboosh.editChannel(kboosh_id, { name : "Voice ⇏「" + x + "」"});
+    kboosh.editChannel(kboosh_id, { name : "Voice ⇏「"+xGameMC+"」"});
 });
 kboosh.on("voiceChannelLeave", (msg) => {
     x--;
-    kboosh.editChannel(kboosh_id, { name : "Voice ⇏「" + x + "」"});
+    kboosh.editChannel(kboosh_id, { name : "Voice ⇏「"+xGameMC+"」"});
 });
 
 kboosh.on("messageCreate", (msg) => {
