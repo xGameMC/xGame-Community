@@ -282,6 +282,7 @@ client.on('message', message =>{
 
 }
 
+});
 
 
  	  
