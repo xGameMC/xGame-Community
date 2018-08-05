@@ -153,7 +153,7 @@ client.on("message", message => {
 });
     client.on('message', message => { 
     var prefix ="$";
-           if (message.content.startsWith(prefix + "user")) {
+           if (message.content.startsWith(prefix + "id")) {
      var args = message.content.split(" ").slice(1);
      let user = message.mentions.users.first();
      var men = message.mentions.users.first();
