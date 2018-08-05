@@ -284,38 +284,18 @@ client.on('message', message => {
          
     }
 });
-  client.on('message', message => {
-  if (message.guild) {
- let embed = new Discord.RichEmbed()
-  let args = message.content.split(' ').slice(1).join(' ');
-if(message.content.split(' ')[0] == prefix + 'bc') {
-  if (!args[1]) {
-message.channel.send("**^bc <message>**");
-return;
-}
-      message.guild.members.forEach(m => {
- if(!message.member.hasPermission('ADMINISTRATOR')) return;
-          var bc = new Discord.RichEmbed()
-          .setAuthor(message.author.username, message.author.avatarURL)
-          .addField(' The server', `${message.guild.name}`, true)
-          .addField(' who sended the messege ', `${message.author.username}!${message.author.discriminator}`, true)
-          .addField(' the messege ', args)
-          .setThumbnail(message.guild.iconURL)
-          .setColor('RANDOM')
-          m.send(`${m}`,{embed: bc});
-      });
-      const unknown = new Discord.RichEmbed()
-      .setAuthor(message.author.username, message.author.avatarURL)
-      .setTitle('✅| the messege is loading ')
-      .addBlankField(true)
-      .addField('♨| i got sended to  ', message.guild.memberCount , true)
-      .addField('📝| the message ', args)
-      .setColor('RANDOM')
-      message.channel.sendEmbed(embed);
-  }
-  } else {
-      return;
-  }
+  client.on("message", message => {
+
+            if (message.content.startsWith(prefix + "bc")) {
+                         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
+  let args = message.content.split(" ").slice(1);
+  var argresult = args.join(' '); 
+  message.guild.members.filter(m => m.presence.status !== 'all').forEach(m => {
+ m.send(`${argresult}\n ${m}`);
+})
+ message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'all').size}\` : عدد الاعضاء المستلمين`); 
+ message.delete(); 
+};     
 });
   });
 
