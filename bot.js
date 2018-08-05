@@ -288,6 +288,19 @@ client.on("message", message => {
 }
 });
 	
+client.on("message", message => {
+    var prefix = "$"
+    if (!message.content.startsWith(prefix)) return;
+      let command = message.content.split(" ")[0];
+      command = command.slice(prefix.length);
+        if(command === "skin") {
+                const args = message.content.split(" ").slice(1).join(" ")
+        if (!args) return message.channel.send("** حدد اسم السكن  **");
+        const image = new Discord.Attachment(`https://visage.surgeplay.com/full/256/${args}`, "skin.png");
+    message.channel.send(image)
+        }
+    });	
+	
 });
 
 client.login(process.env.BOT_TOKEN);
