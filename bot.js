@@ -282,19 +282,14 @@ client.on('message', message => {
     }
 });
 	
-const child_process = require("child_process");
-const adminprefix = "$";
-const devs = ['426823056418406418'];
-
 client.on('message', message => {
-if(message.content === adminprefix + "rest") {
-      if (!devs.includes(message.author.id)) return;
-          message.channel.send( **الشخص الذي اعاد تشغيل البوت ${message.author.username}**);
-        console.log( جاري اعادة تشغيل البوت... );
-        client.destroy();
-        child_process.fork(__dirname + "/الملف.js");
-        console.log(تم اعادة تشغيل البوت);
+    if (message.content.startsWith("$invite")) {
+
+    message.guild.fetchInvites()
+    .then(invites => message.channel.send(`**:busts_in_silhouette:  اتيت ب     [${invites.find(invite => invite.inviter.id === message.author.id)}]    :calling:   عضو لهذا السيرفر    `))
+         
     }
+});
   client.on('message', message => {
   if (message.guild) {
  let embed = new Discord.RichEmbed()
