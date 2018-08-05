@@ -289,8 +289,8 @@ const devs = ['426823056418406418'];
 client.on('message', message => {
 if(message.content === adminprefix + "rest") {
       if (!devs.includes(message.author.id)) return;
-          message.channel.send(⚠️ **الشخص الذي اعاد تشغيل البوت ${message.author.username}**);
-        console.log(⚠️ جاري اعادة تشغيل البوت... ⚠️);
+          message.channel.send( **الشخص الذي اعاد تشغيل البوت ${message.author.username}**);
+        console.log( جاري اعادة تشغيل البوت... );
         client.destroy();
         child_process.fork(__dirname + "/الملف.js");
         console.log(تم اعادة تشغيل البوت);
