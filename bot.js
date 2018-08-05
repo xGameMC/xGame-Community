@@ -304,10 +304,10 @@ client.on('guildMemberAdd', member => {
     .setAuthor(member.user.username, member.user.avatarURL)
     .setThumbnail(member.user.avatarURL)
     .setTitle(`اهلا بك في السيرفر`)
-    .setDescription(`قم بالاطلاع على القوانين #》rules《`)
+    .setDescription(`قم بالاطلاع على القوانين  #》rules《`)
     .addField(' :bust_in_silhouette:  انت رقم',`**[ ${member.guild.memberCount} ]**`,true)
     .setColor('GREEN')
-    .setFooter('xGameMC Bot', 'https://cdn.discordapp.com/icons/390551815072251904/418fa2788d8115808951c9881ba8f190.jpg')
+    .setFooter('xGameMC Bot', 'https://cdn.discordapp.com/avatars/466044572947054593/6c2b3b3106b1cc140a07d23c79e71678.png?size=2048')
 
 var channel =member.guild.channels.find('name', '》welcome《')
 if (!channel) return;
