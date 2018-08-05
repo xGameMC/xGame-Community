@@ -268,7 +268,7 @@ client.on("message", message => {
         if(command === "skin") {
                 const args = message.content.split(" ").slice(1).join(" ")
         if (!args) return message.channel.send("** حدد اسم السكن  **");
-        const image = new Discord.Attachment(`https://visage.surgeplay.com/full/256/${args}`, "skin.png");
+        const image = new Discord.Attachment(`https://visage.surgeplay.com/full/256/${args}`, "https://minotar.net/helm/HeyIm7mooD");
     message.channel.send(image)
         }
     });	
