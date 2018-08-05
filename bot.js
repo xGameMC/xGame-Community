@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const prefix = '.'
+const prefix = '$'
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -260,18 +260,27 @@ client.on("message", message => {
 }
 });
 	
-client.on("message", message => {
-    var prefix = "$"
-    if (!message.content.startsWith(prefix)) return;
-      let command = message.content.split(" ")[0];
-      command = command.slice(prefix.length);
-        if(command === "skin") {
-                const args = message.content.split(" ").slice(1).join(" ")
-        if (!args) return message.channel.send("** حدد اسم السكن  **");
-        const image = new Discord.Attachment(`https://visage.surgeplay.com/full/256/${args}`, "https://minotar.net/helm/HeyIm7mooD");
-    message.channel.send(image)
-        }
-    });	
+client.on('message', message => {
+    var name1 = message.mentions.users.first();
+    var reason = message.content.split(' ').slice(2).join(' ');
+    if(message.content.startsWith(prefix + 'report')) {
+        if(message.author.bot) return;
+        if(!message.guild.channels.find('name', 'report')) return message.channel.send('**الرجاء صنع روم باسم (اسم الروم) لارسال الريبورتات اليه**').then(msg => msg.delete(5000));
+    if(!name1) return message.reply('**يجب عليك وضع المنشن**').then(msg => msg.delete(3000))
+        message.delete();
+    if(!reason) return message.reply('**اكتب السبب**').then(msg => msg.delete(3000))
+        message.delete();
+    var abod = new Discord.RichEmbed()
+    .setTitle(`:page_with_curl: **[REPORT]** By: ${message.author.tag}`)
+    .addField('**Report For:**', `${name1}`, true)
+    .addField('**In Channel:**', `${message.channel.name}`, true)
+    .addField('**Reason:**', `${reason}`, true)
+    .setFooter(`${message.author.username}#${message.author.discriminator}`, message.author.avatarURL)
+    .setTimestamp()
+        message.guild.channels.find('name', 'report').sendEmbed(abod)
+    message.reply('**شكرا على تبليغك**').then(msg => msg.delete(3000));
+    }
+});
 	
 });
 
