@@ -411,7 +411,6 @@ if(!xp[message.author.id]){
  
    let lvlEmbed = new Discord.RichEmbed()
    .setAuthor(message.author.username)
-   .setColor(purple)
    .addField("Level", curlvl, true)
    .addField("XP", curxp, true)
    .setFooter(`${difference} XP til level up`, message.author.displayAvatarURL);
