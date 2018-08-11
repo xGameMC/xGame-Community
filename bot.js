@@ -449,7 +449,6 @@ if(cmd === `${prefix}coins`) {
 });
 	
   });
-const fs = require('fs');
 
 
 client.login(process.env.BOT_TOKEN);
